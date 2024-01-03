@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cdaa5c4owxtp"]
+
+[node name="Text" type="RichTextLabel"]
+offset_right = 1280.0
+offset_bottom = 40.0
+focus_mode = 2
+mouse_default_cursor_shape = 1
+bbcode_enabled = true
+fit_content = true
+context_menu_enabled = true
+selection_enabled = true
