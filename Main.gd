@@ -15,6 +15,7 @@ func _ready():
 	
 	# Build site
 	for line: String in gwml:
+		# Check for finishing line
 		if line == "#\r":
 			if element == "paragraph":
 				elements.append(Paragraph.instantiate())
@@ -33,10 +34,11 @@ func _ready():
 				builder_y += elements[element_id].size.y
 				
 			element_id += 1
+		#Check for elements
 		elif line == "#paragraph\r":
 			element = "paragraph"
-			properties = []
-		else:
+			properties = [] # Clean
+		else: # Property line
 			properties.append(line.split("=", false, 1))
 	
 func _process(delta):
