@@ -32,11 +32,35 @@ func _ready():
 						elements[element_id].text = property[1]
 				
 				builder_y += elements[element_id].size.y
+			
+			# wip
+			if element == "image":
+				elements.append(Paragraph.instantiate())
+				add_child(elements[element_id])
+				
+				elements[element_id].position.y = builder_y
+				
+				for property in properties:
+					if property[0] == "padding":
+						elements[element_id].position.x += int(property[1])
+						elements[element_id].position.y += int(property[1])
+						builder_y += int(property[1])
+					if property[0] == "src":
+						var _image = load("res://" + property[1])
+						# elements[element_id].text = property[1]
+					# if property[0] == "alt":
+						# elements[element_id].text = property[1]
+						# to azapru: please find use for this ok
+				
+				builder_y += elements[element_id].size.y
 				
 			element_id += 1
 		#Check for elements
 		elif line == "#paragraph\r":
 			element = "paragraph"
+			properties = [] # Clean
+		elif line == "#image\r":
+			element = "image"
 			properties = [] # Clean
 		else: # Property line
 			properties.append(line.split("=", false, 1))

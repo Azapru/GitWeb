@@ -12,3 +12,9 @@ padding=10
 text=Balls Gaming!!!
 padding=10
 #
+
+#image
+src=images/testimg.jpg
+alt=Test image
+padding=10
+#
